@@ -1,5 +1,5 @@
-#ifndef CHUNK_H
-#define CHUNK_H
+#ifndef EMPIN_CHUNK_H
+#define EMPIN_CHUNK_H
 
 #include "common.h"
 
@@ -15,6 +15,7 @@ typedef struct
  Slot *code;
 } Chunk;
 void Chunk_init(Chunk *self);
+void Chunk_destroy(Chunk *self);
 void Chunk_write(Chunk *self, Slot value);
 
 #endif

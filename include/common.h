@@ -1,5 +1,5 @@
-#ifndef COMMON_H
-#define COMMON_H
+#ifndef EMPIN_COMMON_H
+#define EMPIN_COMMON_H
 
 #include <stdbool.h>
 #include <stddef.h>
