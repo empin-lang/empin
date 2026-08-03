@@ -4,4 +4,6 @@
 #include <stdbool.h>
 #include <stddef.h>
 
+typedef unsigned char Slot;
+
 #endif

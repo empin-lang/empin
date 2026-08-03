@@ -10,10 +10,11 @@ typedef enum
 
 typedef struct
 {
- size_t count;
+ size_t size;
  size_t capacity;
- short int *code;
+ Slot *code;
 } Chunk;
 void Chunk_init(Chunk *self);
+void Chunk_write(Chunk *self, Slot value);
 
 #endif
