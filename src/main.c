@@ -9,7 +9,7 @@ int main(int argc, char *argv[])
 	Chunk_init(&chunk);
 	
 
-	Chunk_write(&chunk, OP_RETURN);
+	Chunk_write(&chunk, OP_HALT);
 	disassemble_Chunk(&chunk, "test chunk");
 	Chunk_destroy(&chunk);
 	return 0;

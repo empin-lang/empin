@@ -26,8 +26,8 @@ size_t disassemble_instruction(Chunk *self, size_t offset)
 
 	switch (instruction)
 	{
-		case OP_RETURN:
-			return simple_instruction("OP_RETURN", offset);
+		case OP_HALT:
+			return simple_instruction("OP_HALT", offset);
 		default:
 			printf("Unknown opcode %u\n", instruction);
 			return offset + 1;

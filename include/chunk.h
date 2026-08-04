@@ -5,7 +5,7 @@
 
 typedef enum
 {
- OP_RETURN,
+ OP_HALT,
 } OpCode;
 
 typedef struct
