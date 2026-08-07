@@ -4,6 +4,6 @@
 #include "chunk.h"
 
 void disassemble_Chunk(Chunk *self, const char *name);
-size_t disassemble_instruction(Chunk *self, size_t offset);
+epssize_t disassemble_instruction(Chunk *self, epssize_t offset);
 
 #endif

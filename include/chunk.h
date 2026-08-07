@@ -10,8 +10,8 @@ typedef enum
 
 typedef struct
 {
- size_t size;
- size_t capacity;
+ epssize_t size;
+ epssize_t capacity;
  Slot *code;
 } Chunk;
 void Chunk_init(Chunk *self);

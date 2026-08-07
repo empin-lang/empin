@@ -5,5 +5,6 @@
 #include <stddef.h>
 
 typedef unsigned char Slot;
+typedef long long int epssize_t;
 
 #endif

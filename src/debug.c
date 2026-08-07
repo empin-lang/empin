@@ -2,7 +2,7 @@
 
 #include "debug.h"
 
-static size_t simple_instruction(const char *name, size_t offset)
+static epssize_t simple_instruction(const char *name, epssize_t offset)
 {
 	printf("%s\n", name);
 	return offset + 1;
@@ -12,15 +12,15 @@ void disassemble_Chunk(Chunk *self, const char *name)
 {
 	printf("== %s == \n", name);
 
-	for (size_t offset = 0;offset < self->size;)
+	for (epssize_t offset = 0;offset < self->size;)
 	{
 		offset = disassemble_instruction(self, offset);
 	}
 }
 
-size_t disassemble_instruction(Chunk *self, size_t offset)
+epssize_t disassemble_instruction(Chunk *self, epssize_t offset)
 {
-	printf("%04zu ", offset);
+	printf("%04lld ", offset);
 
 	Slot instruction = self->code[offset];
 

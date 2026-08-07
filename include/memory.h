@@ -10,6 +10,6 @@
 #define FREE_ARRAY(type, pointer, old_size) \
 	reallocate(pointer, sizeof(type) * old_size, 0);
 
-void *reallocate(void *pointer, size_t old_size, size_t new_size);
+void *reallocate(void *pointer, epssize_t old_size, epssize_t new_size);
 
 #endif

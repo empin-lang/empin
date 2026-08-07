@@ -20,7 +20,7 @@ void Chunk_write(Chunk *self, Slot value)
 {
 	if (self->capacity < self->size + 1)
 	{
-		size_t old_capacity = self->capacity;
+		epssize_t old_capacity = self->capacity;
 		self->capacity = old_capacity * 2;
 		self->code = GROW_ARRAY(Slot, self->code, \
 		old_capacity, self->capacity);
