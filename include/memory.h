@@ -3,6 +3,9 @@
 
 #include "common.h"
 
+#define GROW_CAPACITY(old_capacity) \
+	(old_capacity ? old_capacity * 2 : 10)
+
 #define GROW_ARRAY(type, pointer, old_size, new_size) \
 	(type*)reallocate(pointer, sizeof(type) * (old_size), \
 		sizeof(type) * (new_size))

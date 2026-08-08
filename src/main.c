@@ -5,12 +5,12 @@
 
 int main(int argc, char *argv[])
 {
-	Chunk chunk;
-	Chunk_init(&chunk);
+	EmpinChunk chunk;
+	EmpinChunk_init(&chunk);
 	
 
-	Chunk_write(&chunk, OP_HALT);
-	disassemble_Chunk(&chunk, "test chunk");
-	Chunk_destroy(&chunk);
+	EmpinChunk_write(&chunk, OP_HALT);
+	disassemble_EmpinChunk(&chunk, "test chunk");
+	EmpinChunk_destroy(&chunk);
 	return 0;
 }

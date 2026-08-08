@@ -2,6 +2,7 @@
 #define EMPIN_CHUNK_H
 
 #include "common.h"
+#include "value.h"
 
 typedef enum
 {
@@ -13,9 +14,11 @@ typedef struct
  epssize_t size;
  epssize_t capacity;
  Slot *code;
-} Chunk;
-void Chunk_init(Chunk *self);
-void Chunk_destroy(Chunk *self);
-void Chunk_write(Chunk *self, Slot value);
+ EmpinValueArray constants;
+} EmpinChunk;
+void EmpinChunk_init(EmpinChunk *self);
+void EmpinChunk_destroy(EmpinChunk *self);
+void EmpinChunk_write(EmpinChunk *self, Slot value);
+epssize_t EmpinChunk_add_constant(EmpinChunk *chunk, Value value);
 
 #endif

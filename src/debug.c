@@ -8,7 +8,7 @@ static epssize_t simple_instruction(const char *name, epssize_t offset)
 	return offset + 1;
 }
 
-void disassemble_Chunk(Chunk *self, const char *name)
+void disassemble_EmpinChunk(EmpinChunk *self, const char *name)
 {
 	printf("== %s == \n", name);
 
@@ -18,7 +18,7 @@ void disassemble_Chunk(Chunk *self, const char *name)
 	}
 }
 
-epssize_t disassemble_instruction(Chunk *self, epssize_t offset)
+epssize_t disassemble_instruction(EmpinChunk *self, epssize_t offset)
 {
 	printf("%04lld ", offset);
 
