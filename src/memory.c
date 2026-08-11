@@ -2,7 +2,7 @@
 
 #include "memory.h"
 
-void *reallocate(void *pointer, epssize_t old_size, epssize_t new_size)
+void *empin_reallocate(void *pointer, epssize_t old_size, epssize_t new_size)
 {
 	if (new_size == 0)
 	{

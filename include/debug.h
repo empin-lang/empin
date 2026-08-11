@@ -3,7 +3,7 @@
 
 #include "chunk.h"
 
-void disassemble_EmpinChunk(EmpinChunk *self, const char *name);
-epssize_t disassemble_instruction(EmpinChunk *self, epssize_t offset);
+void empin_disassemble_EmpinChunk(EmpinChunk *self, const char *name);
+epssize_t empin_disassemble_instruction(EmpinChunk *self, epssize_t offset);
 
 #endif

@@ -8,21 +8,21 @@ static epssize_t simple_instruction(const char *name, epssize_t offset)
 	return offset + 1;
 }
 
-void disassemble_EmpinChunk(EmpinChunk *self, const char *name)
+void empin_disassemble_EmpinChunk(EmpinChunk *self, const char *name)
 {
 	printf("== %s == \n", name);
 
 	for (epssize_t offset = 0;offset < self->size;)
 	{
-		offset = disassemble_instruction(self, offset);
+		offset = empin_disassemble_instruction(self, offset);
 	}
 }
 
-epssize_t disassemble_instruction(EmpinChunk *self, epssize_t offset)
+epssize_t empin_disassemble_instruction(EmpinChunk *self, epssize_t offset)
 {
 	printf("%04lld ", offset);
 
-	Slot instruction = self->code[offset];
+	EmpinSlot instruction = self->code[offset];
 
 	switch (instruction)
 	{

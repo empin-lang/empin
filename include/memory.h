@@ -7,12 +7,12 @@
 	(old_capacity ? old_capacity * 2 : 10)
 
 #define GROW_ARRAY(type, pointer, old_size, new_size) \
-	(type*)reallocate(pointer, sizeof(type) * (old_size), \
+	(type*)empin_reallocate(pointer, sizeof(type) * (old_size), \
 		sizeof(type) * (new_size))
 
 #define FREE_ARRAY(type, pointer, old_size) \
-	reallocate(pointer, sizeof(type) * old_size, 0);
+	empin_reallocate(pointer, sizeof(type) * old_size, 0);
 
-void *reallocate(void *pointer, epssize_t old_size, epssize_t new_size);
+void *empin_reallocate(void *pointer, epssize_t old_size, epssize_t new_size);
 
 #endif

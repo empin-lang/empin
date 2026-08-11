@@ -4,7 +4,7 @@
 #include <stdbool.h>
 #include <stddef.h>
 
-typedef unsigned char Slot;
+typedef unsigned char EmpinSlot;
 typedef long long int epssize_t;
 
 #endif

@@ -10,7 +10,7 @@ int main(int argc, char *argv[])
 	
 
 	EmpinChunk_write(&chunk, OP_HALT);
-	disassemble_EmpinChunk(&chunk, "test chunk");
+	empin_disassemble_EmpinChunk(&chunk, "test chunk");
 	EmpinChunk_destroy(&chunk);
 	return 0;
 }

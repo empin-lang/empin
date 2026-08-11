@@ -10,13 +10,13 @@ void EmpinValueArray_init(EmpinValueArray *self)
 	self->size = 0;
 }
 
-void EmpinValueArray_write(EmpinValueArray *self, Value value)
+void EmpinValueArray_write(EmpinValueArray *self, EmpinValue value)
 {
 	if (self->capacity < self->size + 1)
 	{
 		epssize_t old_capacity = self->capacity;
 		self->capacity = GROW_CAPACITY(old_capacity);
-		self->values = GROW_ARRAY(Value, self->values,
+		self->values = GROW_ARRAY(EmpinValue, self->values,
 			old_capacity, self->capacity);
 	}
 	self->values[self->size] = value;
@@ -25,6 +25,6 @@ void EmpinValueArray_write(EmpinValueArray *self, Value value)
 
 void EmpinValueArray_destroy(EmpinValueArray *self)
 {
-	FREE_ARRAY(Value, self->values, self->capacity);
+	FREE_ARRAY(EmpinValue, self->values, self->capacity);
 	EmpinValueArray_init(self);
 }
