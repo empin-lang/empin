@@ -1,5 +1,7 @@
 #include <stdlib.h>
+#include <stdarg.h>
 
+#include "common.h"
 #include "chunk.h"
 #include "memory.h"
 
@@ -36,4 +38,30 @@ epssize_t EmpinChunk_add_constant(EmpinChunk *self, EmpinValue value)
 {
 	EmpinValueArray_write(&self->constants, value);
 	return self->constants.size - 1;
+}
+
+void EmpinChunk_write_instruction(EmpinChunk *self, EmpinOpCode op, ...)
+{
+	va_list args;
+	va_start(args, op);
+
+	EmpinChunk_write(self, (EmpinSlot)op);
+	
+	switch (op)
+	{
+		case OP_HALT:
+			EmpinChunk_write(self, 0);
+			EmpinChunk_write(self, 0);
+			EmpinChunk_write(self, 0);
+			break;
+		case OP_ADD:
+			EmpinSlot rd = (EmpinSlot)(va_arg(args, int));
+			EmpinSlot rs1 = (EmpinSlot)(va_arg(args, int));
+			EmpinSlot rs2 = (EmpinSlot)(va_arg(args, int));
+
+			EmpinChunk_write(self, rd);
+			EmpinChunk_write(self, rs1);
+			EmpinChunk_write(self, rs2);
+			break;
+	}	
 }

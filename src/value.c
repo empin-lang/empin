@@ -28,3 +28,8 @@ void EmpinValueArray_destroy(EmpinValueArray *self)
 	FREE_ARRAY(EmpinValue, self->values, self->capacity);
 	EmpinValueArray_init(self);
 }
+
+void EmpinValue_print(EmpinValue *self)
+{
+	printf("%d", *self);
+}

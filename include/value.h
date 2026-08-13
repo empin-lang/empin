@@ -16,5 +16,6 @@ void EmpinValueArray_init(EmpinValueArray *self);
 void EmpinValueArray_write(EmpinValueArray *self, EmpinValue value);
 void EmpinValueArray_destroy(EmpinValueArray *self);
 
+void EmpinValue_print(EmpinValue *self);
 
 #endif

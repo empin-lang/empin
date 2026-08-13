@@ -7,6 +7,7 @@
 typedef enum
 {
  OP_HALT,
+ OP_ADD
 } EmpinOpCode;
 
 typedef struct
@@ -20,5 +21,6 @@ void EmpinChunk_init(EmpinChunk *self);
 void EmpinChunk_destroy(EmpinChunk *self);
 void EmpinChunk_write(EmpinChunk *self, EmpinSlot value);
 epssize_t EmpinChunk_add_constant(EmpinChunk *chunk, EmpinValue value);
+void EmpinChunk_write_instruction(EmpinChunk *self, EmpinOpCode op, ...);
 
 #endif
