@@ -63,5 +63,9 @@ void EmpinChunk_write_instruction(EmpinChunk *self, EmpinOpCode op, ...)
 			EmpinChunk_write(self, rs1);
 			EmpinChunk_write(self, rs2);
 			break;
+		case OP_ECALL:
+			EmpinChunk_write(self, 0);
+			EmpinChunk_write(self, 0);
+			EmpinChunk_write(self, 0);
 	}	
 }

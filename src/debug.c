@@ -34,6 +34,8 @@ epssize_t empin_disassemble_instruction(EmpinChunk *self, epssize_t offset)
 			 rs2 = self->code[offset + 3];
 			printf("%s R%d, R%d, R%d\n", "OP_ADD", rd, rs1, rs2);
 			return offset + EMP_INSTRUCTION_SIZE;
+		case OP_ECALL:
+			return simple_instruction("OP_ECALL", offset);	
 		default:
 			printf("Unknown opcode %u\n", instruction);
 			return offset + EMP_INSTRUCTION_SIZE;

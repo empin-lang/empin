@@ -7,7 +7,8 @@
 typedef enum
 {
  OP_HALT,
- OP_ADD
+ OP_ADD,
+ OP_ECALL
 } EmpinOpCode;
 
 typedef struct

@@ -4,12 +4,13 @@
 #include "chunk.h"
 
 #define EMP_REGISTER_COUNT 32
+typedef unsigned long long int EmpinReg;
 
 typedef struct
 {
  EmpinChunk *chunk;
  EmpinSlot *ip;
- EmpinValue regs[EMP_REGISTER_COUNT];
+ EmpinReg regs[EMP_REGISTER_COUNT];
 } EmpinVM;
 
 void EmpinVM_init(EmpinVM *self);

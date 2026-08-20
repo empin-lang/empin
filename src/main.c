@@ -13,10 +13,11 @@ int main(int argc, char *argv[])
 	EmpinChunk_init(&chunk);
 	
 	EmpinChunk_write_instruction(&chunk, OP_ADD, 0, 1, 2);
+	EmpinChunk_write_instruction(&chunk, OP_ECALL);
 	EmpinChunk_write_instruction(&chunk, OP_HALT, NULL);
-	printf("exit(%d)\n", EmpinVM_interpret(&vm, &chunk));
+	printf("\nexit(%d)\n", EmpinVM_interpret(&vm, &chunk));
 	
-	empin_disassemble_EmpinChunk(&chunk, "test chunk");
+	// empin_disassemble_EmpinChunk(&chunk, "test chunk");
 
 	EmpinVM_destroy(&vm);
 	EmpinChunk_destroy(&chunk);

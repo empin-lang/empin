@@ -1,10 +1,13 @@
 #include "vm.h"
 #include "common.h"
+#include "ecall.h"
 #include <stdbool.h>
+#include <stdio.h>
+#include <string.h>
 
 void EmpinVM_init(EmpinVM *self)
 {
-	
+	memset(self->regs, 0, sizeof(self->regs));	
 }
 
 void EmpinVM_destroy(EmpinVM *self)
@@ -30,6 +33,14 @@ static int EmpinVM_run(EmpinVM *self)
 
 				self->regs[rd] = self->regs[rs1] +
 				self->regs[rs2];
+			case OP_ECALL:
+				EmpinEcallNumber ecall = self->regs[0];
+				if (ecall == ECALL_PRINT_INT)
+				{
+					long long int number;
+					memcpy(&number, &(self->regs[1]), sizeof(EmpinReg));
+					printf("%lld", number);
+				}
 		}
 		self->ip += EMP_INSTRUCTION_SIZE;
 	}
