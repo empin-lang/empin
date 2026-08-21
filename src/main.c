@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
 	EmpinChunk_write_instruction(&chunk, OP_HALT, NULL);
 	printf("\nexit(%d)\n", EmpinVM_interpret(&vm, &chunk));
 	
-	// empin_disassemble_EmpinChunk(&chunk, "test chunk");
+	empin_disassemble_EmpinChunk(&chunk, "test chunk");
 
 	EmpinVM_destroy(&vm);
 	EmpinChunk_destroy(&chunk);

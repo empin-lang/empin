@@ -26,13 +26,12 @@ static int EmpinVM_run(EmpinVM *self)
 				return 0;
 			case OP_ADD:
 				EmpinSlot rd = self->ip[1];
-				self->ip ++;
 				EmpinSlot rs1 = self->ip[2];
-				self->ip ++;
 				EmpinSlot rs2 = self->ip[3];
 
 				self->regs[rd] = self->regs[rs1] +
 				self->regs[rs2];
+				break;
 			case OP_ECALL:
 				EmpinEcallNumber ecall = self->regs[0];
 				if (ecall == ECALL_PRINT_INT)
@@ -41,6 +40,7 @@ static int EmpinVM_run(EmpinVM *self)
 					memcpy(&number, &(self->regs[1]), sizeof(EmpinReg));
 					printf("%lld", number);
 				}
+				break;
 		}
 		self->ip += EMP_INSTRUCTION_SIZE;
 	}
