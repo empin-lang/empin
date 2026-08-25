@@ -28,11 +28,11 @@ epssize_t empin_disassemble_instruction(EmpinChunk *self, epssize_t offset)
 	{
 		case OP_HALT:
 			return simple_instruction("OP_HALT", offset);
-		case OP_ADD:
+		case OP_ADD_I:
 			EmpinSlot rd = self->code[offset + 1],
 			 rs1 = self->code[offset + 2],
 			 rs2 = self->code[offset + 3];
-			printf("%s R%d, R%d, R%d\n", "OP_ADD", rd, rs1, rs2);
+			printf("%s R%d, R%d, R%d\n", "OP_ADD_I", rd, rs1, rs2);
 			return offset + EMP_INSTRUCTION_SIZE;
 		case OP_ECALL:
 			return simple_instruction("OP_ECALL", offset);	

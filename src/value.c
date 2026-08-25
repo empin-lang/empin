@@ -31,5 +31,5 @@ void EmpinValueArray_destroy(EmpinValueArray *self)
 
 void EmpinValue_print(EmpinValue *self)
 {
-	printf("%d", *self);
+	printf("%lld", self->i);
 }

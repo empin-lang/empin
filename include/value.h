@@ -3,7 +3,12 @@
 
 #include "common.h"
 
-typedef int EmpinValue;
+typedef struct EmpinValue
+{
+ long long int i;
+ unsigned long long int u;
+ double d;
+} EmpinValue;
 
 typedef struct
 {

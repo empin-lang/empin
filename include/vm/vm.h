@@ -3,8 +3,8 @@
 
 #include "chunk.h"
 
-#define EMP_REGISTER_COUNT 32
-typedef unsigned long long int EmpinReg;
+#define EMP_REGISTER_COUNT 8
+typedef EmpinValue EmpinReg;
 
 typedef struct
 {

@@ -50,11 +50,14 @@ void EmpinChunk_write_instruction(EmpinChunk *self, EmpinOpCode op, ...)
 	switch (op)
 	{
 		case OP_HALT:
+		{
 			EmpinChunk_write(self, 0);
 			EmpinChunk_write(self, 0);
 			EmpinChunk_write(self, 0);
 			break;
-		case OP_ADD:
+		}
+		case OP_ADD_I:
+		{
 			EmpinSlot rd = (EmpinSlot)(va_arg(args, int));
 			EmpinSlot rs1 = (EmpinSlot)(va_arg(args, int));
 			EmpinSlot rs2 = (EmpinSlot)(va_arg(args, int));
@@ -63,9 +66,14 @@ void EmpinChunk_write_instruction(EmpinChunk *self, EmpinOpCode op, ...)
 			EmpinChunk_write(self, rs1);
 			EmpinChunk_write(self, rs2);
 			break;
+		}
 		case OP_ECALL:
+		{
 			EmpinChunk_write(self, 0);
 			EmpinChunk_write(self, 0);
 			EmpinChunk_write(self, 0);
-	}	
+		}
+			
+	}
+	va_end(args);	
 }

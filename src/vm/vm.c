@@ -24,21 +24,19 @@ static int EmpinVM_run(EmpinVM *self)
 		{
 			case OP_HALT:
 				return 0;
-			case OP_ADD:
+			case OP_ADD_I:
 				EmpinSlot rd = self->ip[1];
 				EmpinSlot rs1 = self->ip[2];
 				EmpinSlot rs2 = self->ip[3];
 
-				self->regs[rd] = self->regs[rs1] +
-				self->regs[rs2];
+				self->regs[rd].i = self->regs[rs1].i +
+				self->regs[rs2].i;
 				break;
 			case OP_ECALL:
-				EmpinEcallNumber ecall = self->regs[0];
+				EmpinEcallNumber ecall = self->regs[0].i;
 				if (ecall == ECALL_PRINT_INT)
 				{
-					long long int number;
-					memcpy(&number, &(self->regs[1]), sizeof(EmpinReg));
-					printf("%lld", number);
+					printf("%lld", self->regs[1].i);
 				}
 				break;
 		}

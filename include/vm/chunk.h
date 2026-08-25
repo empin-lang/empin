@@ -7,7 +7,7 @@
 typedef enum
 {
  OP_HALT,
- OP_ADD,
+ OP_ADD_I,
  OP_ECALL
 } EmpinOpCode;
 
