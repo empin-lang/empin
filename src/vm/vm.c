@@ -7,7 +7,7 @@
 
 void EmpinVM_init(EmpinVM *self)
 {
-	memset(self->regs, 0, sizeof(self->regs));	
+		
 }
 
 void EmpinVM_destroy(EmpinVM *self)
@@ -29,14 +29,14 @@ static int EmpinVM_run(EmpinVM *self)
 				EmpinSlot rs1 = self->ip[2];
 				EmpinSlot rs2 = self->ip[3];
 
-				self->regs[rd].i = self->regs[rs1].i +
-				self->regs[rs2].i;
+				self->gprs[rd] = (EmpinInt)((EmpinInt)self->gprs[rs1] +
+				(EmpinInt)self->gprs[rs2]);
 				break;
 			case OP_ECALL:
-				EmpinEcallNumber ecall = self->regs[0].i;
+				EmpinEcallNumber ecall = self->gprs[1];
 				if (ecall == ECALL_PRINT_INT)
 				{
-					printf("%lld", self->regs[1].i);
+					printf("%lld", self->gprs[1]);
 				}
 				break;
 		}

@@ -72,8 +72,7 @@ void EmpinChunk_write_instruction(EmpinChunk *self, EmpinOpCode op, ...)
 			EmpinChunk_write(self, 0);
 			EmpinChunk_write(self, 0);
 			EmpinChunk_write(self, 0);
-		}
-			
+		}	
 	}
 	va_end(args);	
 }
