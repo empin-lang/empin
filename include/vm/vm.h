@@ -3,7 +3,7 @@
 
 #include "chunk.h"
 
-#define EMP_REGISTER_COUNT 8
+#define EMP_REGISTER_COUNT 16
 
 typedef struct
 {

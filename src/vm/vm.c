@@ -7,7 +7,7 @@
 
 void EmpinVM_init(EmpinVM *self)
 {
-		
+	memset(self->gprs, 0, sizeof(self->gprs));		
 }
 
 void EmpinVM_destroy(EmpinVM *self)
@@ -29,7 +29,7 @@ static int EmpinVM_run(EmpinVM *self)
 				EmpinSlot rs1 = self->ip[2];
 				EmpinSlot rs2 = self->ip[3];
 
-				self->gprs[rd] = (EmpinInt)((EmpinInt)self->gprs[rs1] +
+				self->gprs[rd] = (EmpinUint)((EmpinInt)self->gprs[rs1] +
 				(EmpinInt)self->gprs[rs2]);
 				break;
 			case OP_ECALL:

@@ -2,7 +2,7 @@
 
 #include "debug.h"
 
-static epssize_t simple_instruction(const char *name, epssize_t offset)
+static EmpinSSize simple_instruction(const char *name, EmpinSSize offset)
 {
 	printf("%s\n", name);
 	return offset + EMP_INSTRUCTION_SIZE;
@@ -12,13 +12,13 @@ void empin_disassemble_EmpinChunk(EmpinChunk *self, const char *name)
 {
 	printf("== %s == \n", name);
 
-	for (epssize_t offset = 0;offset < self->size;)
+	for (EmpinSSize offset = 0;offset < self->size;)
 	{
 		offset = empin_disassemble_instruction(self, offset);
 	}
 }
 
-epssize_t empin_disassemble_instruction(EmpinChunk *self, epssize_t offset)
+EmpinSSize empin_disassemble_instruction(EmpinChunk *self, EmpinSSize offset)
 {
 	printf("%04lld ", offset);
 

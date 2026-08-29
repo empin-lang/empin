@@ -24,7 +24,7 @@ void EmpinChunk_write(EmpinChunk *self, EmpinSlot value)
 {
 	if (self->capacity < self->size + 1)
 	{
-		epssize_t old_capacity = self->capacity;
+		EmpinSSize old_capacity = self->capacity;
 		self->capacity = GROW_CAPACITY(old_capacity);
 		self->code = GROW_ARRAY(EmpinSlot, self->code, \
 		old_capacity, self->capacity);
@@ -34,7 +34,7 @@ void EmpinChunk_write(EmpinChunk *self, EmpinSlot value)
 	self->size ++;
 }
 
-epssize_t EmpinChunk_add_constant(EmpinChunk *self, EmpinValue value)
+EmpinSSize EmpinChunk_add_constant(EmpinChunk *self, EmpinValue value)
 {
 	EmpinValueArray_write(&self->constants, value);
 	return self->constants.size - 1;

@@ -13,6 +13,6 @@
 #define FREE_ARRAY(type, pointer, old_size) \
 	empin_reallocate(pointer, sizeof(type) * old_size, 0);
 
-void *empin_reallocate(void *pointer, epssize_t old_size, epssize_t new_size);
+void *empin_reallocate(void *pointer, EmpinSSize old_size, EmpinSSize new_size);
 
 #endif

@@ -5,7 +5,7 @@
 #include <stddef.h>
 
 typedef unsigned char EmpinSlot;
-typedef long long int epssize_t;
+typedef long long int EmpinSSize;
 
 typedef long long int EmpinInt;
 typedef unsigned long long int EmpinUint;

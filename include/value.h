@@ -12,8 +12,8 @@ typedef struct EmpinValue
 
 typedef struct
 {
-	epssize_t capacity;
-	epssize_t size;
+	EmpinSSize capacity;
+	EmpinSSize size;
 	EmpinValue *values;
 } EmpinValueArray;
 

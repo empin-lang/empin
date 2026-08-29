@@ -14,7 +14,7 @@ void EmpinValueArray_write(EmpinValueArray *self, EmpinValue value)
 {
 	if (self->capacity < self->size + 1)
 	{
-		epssize_t old_capacity = self->capacity;
+		EmpinSSize old_capacity = self->capacity;
 		self->capacity = GROW_CAPACITY(old_capacity);
 		self->values = GROW_ARRAY(EmpinValue, self->values,
 			old_capacity, self->capacity);
