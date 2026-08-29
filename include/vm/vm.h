@@ -5,11 +5,12 @@
 
 #define EMP_REGISTER_COUNT 16
 
+typedef EmpinUint EmpinReg;
 typedef struct
 {
  EmpinChunk *chunk;
  EmpinSlot *ip;
- EmpinUint gprs[EMP_REGISTER_COUNT];
+ EmpinReg gprs[EMP_REGISTER_COUNT];
  EmpinFloat fprs[EMP_REGISTER_COUNT];
 } EmpinVM;
 

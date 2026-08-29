@@ -5,9 +5,9 @@
 
 typedef struct EmpinValue
 {
- long long int i;
- unsigned long long int u;
- double d;
+ EmpinInt i;
+ EmpinUint u;
+ EmpinFloat d;
 } EmpinValue;
 
 typedef struct
