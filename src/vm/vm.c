@@ -23,8 +23,11 @@ static int EmpinVM_run(EmpinVM *self)
 		switch (instruction)
 		{
 			case OP_HALT:
+			{
 				return 0;
+			}
 			case OP_ADD_I:
+			{
 				EmpinSlot rd = self->ip[1];
 				EmpinSlot rs1 = self->ip[2];
 				EmpinSlot rs2 = self->ip[3];
@@ -32,13 +35,25 @@ static int EmpinVM_run(EmpinVM *self)
 				self->gprs[rd] = (EmpinReg)((EmpinInt)self->gprs[rs1] +
 				(EmpinInt)self->gprs[rs2]);
 				break;
+			}
+			case OP_LDI_I:
+			{
+				EmpinSlot rd = self->ip[1];
+				EmpinSlot low = self->ip[2];
+				EmpinSlot high = self->ip[3];
+				short int value = (short int)((high << EMP_SLOT_WIDTH) | low);
+				self->gprs[rd] = (EmpinReg)value;
+				break;
+			}
 			case OP_ECALL:
-				EmpinEcallNumber ecall = self->gprs[1];
+			{
+				EmpinEcallNumber ecall = self->gprs[0];
 				if (ecall == ECALL_PRINT_INT)
 				{
 					printf("%lld", self->gprs[1]);
 				}
 				break;
+			}
 		}
 		self->ip += EMP_INSTRUCTION_SIZE;
 	}

@@ -27,17 +27,32 @@ EmpinSSize empin_disassemble_instruction(EmpinChunk *self, EmpinSSize offset)
 	switch (instruction)
 	{
 		case OP_HALT:
+		{
 			return simple_instruction("OP_HALT", offset);
+		}
 		case OP_ADD_I:
+		{
 			EmpinSlot rd = self->code[offset + 1],
 			 rs1 = self->code[offset + 2],
 			 rs2 = self->code[offset + 3];
 			printf("%s R%d, R%d, R%d\n", "OP_ADD_I", rd, rs1, rs2);
 			return offset + EMP_INSTRUCTION_SIZE;
+		}
+		case OP_LDI_I:
+		{
+			EmpinSlot rd = self->code[offset + 1];
+			short int value = (short int)((self->code[offset + 3] >> EMP_SLOT_WIDTH) | self->code[offset + 2]);
+			printf("%s R%d %d\n", "OP_LDI_I", rd, value);
+			return offset + EMP_INSTRUCTION_SIZE;
+		}
 		case OP_ECALL:
-			return simple_instruction("OP_ECALL", offset);	
+		{
+			return simple_instruction("OP_ECALL", offset);
+		}
 		default:
+		{
 			printf("Unknown opcode %u\n", instruction);
 			return offset + EMP_INSTRUCTION_SIZE;
+		}
 	}
 }

@@ -11,8 +11,10 @@ int main(int argc, char *argv[])
 	
 	EmpinChunk chunk;
 	EmpinChunk_init(&chunk);
-	
-	EmpinChunk_write_instruction(&chunk, OP_ADD_I, 0, 1, 2);
+
+	EmpinChunk_write_instruction(&chunk, OP_LDI_I, 1, 2);
+	EmpinChunk_write_instruction(&chunk, OP_LDI_I, 2, 3);	
+	EmpinChunk_write_instruction(&chunk, OP_ADD_I, 1, 1, 2);
 	EmpinChunk_write_instruction(&chunk, OP_ECALL);
 	EmpinChunk_write_instruction(&chunk, OP_HALT, NULL);
 	printf("\nexit(%d)\n", EmpinVM_interpret(&vm, &chunk));

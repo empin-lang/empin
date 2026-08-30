@@ -8,6 +8,7 @@ typedef enum
 {
  OP_HALT,
  OP_ADD_I,
+ OP_LDI_I,
  OP_ECALL
 } EmpinOpCode;
 

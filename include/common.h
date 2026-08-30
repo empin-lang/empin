@@ -13,5 +13,6 @@ typedef double EmpinFloat;
 
 #define EMP_SLOT_BASE 256
 #define EMP_INSTRUCTION_SIZE 4
+#define EMP_SLOT_WIDTH 8
 
 #endif

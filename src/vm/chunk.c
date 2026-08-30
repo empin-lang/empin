@@ -67,11 +67,23 @@ void EmpinChunk_write_instruction(EmpinChunk *self, EmpinOpCode op, ...)
 			EmpinChunk_write(self, rs2);
 			break;
 		}
+		case OP_LDI_I:
+		{
+			EmpinSlot rd = (EmpinSlot)(va_arg(args, int));
+			short int value = (short int)(va_arg(args, int));
+			EmpinSlot low = (EmpinSlot)(value & 0xFF);
+			EmpinSlot high = (EmpinSlot)((value >> EMP_SLOT_WIDTH) & 0xFF);
+			EmpinChunk_write(self, rd);
+			EmpinChunk_write(self, low);
+			EmpinChunk_write(self, high);
+			break;
+		}
 		case OP_ECALL:
 		{
 			EmpinChunk_write(self, 0);
 			EmpinChunk_write(self, 0);
 			EmpinChunk_write(self, 0);
+			break;
 		}	
 	}
 	va_end(args);	
