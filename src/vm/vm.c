@@ -45,6 +45,17 @@ static int EmpinVM_run(EmpinVM *self)
 				self->gprs[rd] = (EmpinReg)value;
 				break;
 			}
+			case OP_BEQ:
+			{
+				EmpinSlot rs1 = self->ip[1];
+				EmpinSlot rs2 = self->ip[2];
+				int offset = (int)self->ip[3];
+				if (self->gprs[rs1] == self->gprs[rs2])
+				{
+					self->ip += offset * EMP_INSTRUCTION_SIZE;
+				}
+				break;
+			}
 			case OP_ECALL:
 			{
 				EmpinEcallNumber ecall = self->gprs[0];

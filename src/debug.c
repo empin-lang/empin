@@ -45,6 +45,14 @@ EmpinSSize empin_disassemble_instruction(EmpinChunk *self, EmpinSSize offset)
 			printf("%s R%d %d\n", "OP_LDI_I", rd, value);
 			return offset + EMP_INSTRUCTION_SIZE;
 		}
+		case OP_BEQ:
+		{
+			EmpinSlot rs1 = self->code[offset + 1];
+			EmpinSlot rs2 = self->code[offset + 2];
+			EmpinSlot off = self->code[offset + 3];
+			printf("%s R%d R%d %d\n", "OP_BEQ", rs1, rs2, off);
+			return offset + EMP_INSTRUCTION_SIZE;
+		}
 		case OP_ECALL:
 		{
 			return simple_instruction("OP_ECALL", offset);

@@ -78,6 +78,16 @@ void EmpinChunk_write_instruction(EmpinChunk *self, EmpinOpCode op, ...)
 			EmpinChunk_write(self, high);
 			break;
 		}
+		case OP_BEQ:
+		{
+			EmpinSlot rs1 = (EmpinSlot)(va_arg(args, int));
+			EmpinSlot rs2 = (EmpinSlot)(va_arg(args, int));
+			EmpinSlot offset = (EmpinSlot)(va_arg(args, int));
+			EmpinChunk_write(self, rs1);
+			EmpinChunk_write(self, rs2);
+			EmpinChunk_write(self, offset);
+			break;
+		}
 		case OP_ECALL:
 		{
 			EmpinChunk_write(self, 0);
